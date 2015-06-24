@@ -1,7 +1,5 @@
 # et35
 
-a [Sails](http://sailsjs.org) application
-
 docker build -t et35 .
 
 docker rm -f et35
