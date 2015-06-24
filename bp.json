@@ -1,0 +1,10 @@
+{
+  "maintainer": {
+    "name": "Jon Dotsoy",
+    "email": "hi@jon.soy",
+    "web": "http://jon.soy/"
+  },
+  "start": [
+    "sails lift"
+  ]
+}

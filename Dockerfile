@@ -1,0 +1,13 @@
+FROM node:0.12.4
+
+RUN mkdir /ET35
+WORKDIR /ET35
+
+COPY ./ /ET35
+
+ENV PORT 80
+
+EXPOSE 80
+VOLUME ["/ET35"]
+
+CMD ["node", "/ET35/app.js"]
