@@ -8,8 +8,14 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.http.html
  */
+var express = require('express');
+var path = require('path');
 
 module.exports.http = {
+
+  customMiddleware: function (app) {
+    // app.use(express.static('/font',process.cwd() + "/.tmp/public/font"))
+  },
 
   /****************************************************************************
   *                                                                           *
@@ -83,5 +89,5 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-  cache: 31557600000
+  cache: 31557600000,
 };

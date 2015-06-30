@@ -22,7 +22,12 @@
 // no matter where we actually lift from.
 process.chdir(__dirname);
 
-console.log("Start Server ET-35.");
+var path = require('path');
+var package = require(path.join(__dirname, 'package.json'));
+
+console.log();
+console.log("[", new Date,"]", "Start Server "+package.title+".");
+console.log();
 
 // Ensure a "sails" can be located:
 (function() {

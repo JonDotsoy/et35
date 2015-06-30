@@ -1,0 +1,21 @@
+{
+  "name": "et35",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://github.com/jonDotsoy/et35",
+  "authors": [
+    "Jon Dotsoy <hi@jon.soy>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery-visible": "https://github.com/customd/jquery-visible",
+    "materialize": "~0.97.0"
+  }
+}

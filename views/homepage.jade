@@ -1,0 +1,73 @@
+extends layout
+
+block body
+  .parallax-container.valign-wrapper(style="height: 701px")
+    .parallax
+      img(src="/images/keyboard.jpg", alt="keyboard")
+    .valign(style="width: 100%;")
+      h1.center-align.deep-orange-text.text-accent-2(style="font-size: 9rem")
+        small.hide-on-med-and-down.deep-orange-text.text-accent-1 www.
+        strong ET-35
+        small.deep-orange-text.text-accent-1 .com
+      h2.center-align.deep-orange-text.text-accent-2= __("Dale vida a tus proyectos")
+      h3.center-align.deep-orange-text.text-accent-2= __("Suscribete aquí")
+      .section.white: .container: form(id="suscription", method="POST", action="")
+        .row
+          .col.s12.input-field
+            label(for="email")= __("Tu Email aquí")
+            input(id="emailval", type="email", name="email", autocomplete="off", required)
+          .col.s12.center-align
+            button.waves-effect.deep-orange.waves-light.btn-large(type="submit") Suscribirce
+            span#endLoad.green-text.text-accent-3 &nbsp;Registro Completo.
+
+  script.
+    $('.parallax').parallax()
+
+    $('#suscription').on('submit', function () {
+      $.post("/RegEmail/create", {
+        email: $("#emailval").val()
+      }, function() {
+        $("#endLoad").show(10);
+        $("#endLoad").fadeOut(10000);
+      })
+      return false
+    })
+
+    $(function() {
+      $("#endLoad").hide(10);
+    })
+
+
+  //- .section.grey.lighten-4
+  //-   .container
+  //-     .row
+  //-       .col.m6
+  //-         h1.deep-orange-text Lorem ipsum dolor.
+  //-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ab iure natus, nisi cupiditate architecto? Nihil assumenda eum facere rerum est ab alias, dolores, animi placeat eius deleniti sit incidunt.
+
+  //- .section.grey.lighten-3
+  //-   .container
+  //-     .row
+  //-       .col.m6
+  //-         h1.deep-orange-text Lorem ipsum dolor.
+  //-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ab iure natus, nisi cupiditate architecto? Nihil assumenda eum facere rerum est ab alias, dolores, animi placeat eius deleniti sit incidunt.
+
+  //- .section.grey.lighten-4
+  //-   .container
+  //-     .row
+  //-       .col.m6
+  //-         h1.deep-orange-text Lorem ipsum dolor.
+  //-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ab iure natus, nisi cupiditate architecto? Nihil assumenda eum facere rerum est ab alias, dolores, animi placeat eius deleniti sit incidunt.
+
+
+  //- .section.deep-orange
+  //-   .container
+  //-     .row
+  //-       .col.m6
+  //-         h1.white-text Lorem ipsum dolor.
+  //-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ab iure natus, nisi cupiditate architecto? Nihil assumenda eum facere rerum est ab alias, dolores, animi placeat eius deleniti sit incidunt.
+  //-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ab iure natus, nisi cupiditate architecto? Nihil assumenda eum facere rerum est ab alias, dolores, animi placeat eius deleniti sit incidunt.
+  //-         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, ab iure natus, nisi cupiditate architecto? Nihil assumenda eum facere rerum est ab alias, dolores, animi placeat eius deleniti sit incidunt.
+
+  footer.section.grey.lighten-4
+    .center-align.grey-text 2015 @ Lorem ipsum dolor sit.
