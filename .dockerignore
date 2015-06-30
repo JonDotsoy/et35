@@ -1,6 +1,7 @@
 node_modules/
 bower_components/
 .data/
+.tmp/
 npm-debug.log
 .bowerrc
 *.log
