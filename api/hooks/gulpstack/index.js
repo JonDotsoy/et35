@@ -1,9 +1,10 @@
 /**
  * gulpstack hook
  */
+'use strict'
 
-var gulp  = require("gulp");
-var stack = require("gulpstack");
+var gulp  = require("gulp")
+var stack = require("gulpstack")
 
 module.exports = function (sails) {
 
@@ -11,53 +12,57 @@ module.exports = function (sails) {
   return {
 
     initialize: function (next) {
-      // sails.log.info("Star de compilation of Gulpstack");
+      // sails.log.info("Star de compilation of Gulpstack")
 
-      // sails.log.info("the pash base PWD is ", process.cwd());
+      // sails.log.info("the pash base PWD is ", process.cwd())
+
+      var config = sails.config.gulpstack || {}
 
       stack(gulp, {
 
-        src:  (sails.config.gulpstack || {}).pathAssets || "assets/",
-        dest: (sails.config.gulpstack || {}).pathPublic || ".tmp/public/",
+        dest : config.pathPublic || ".tmp/public/",
+        src  : config.pathAssets || "assets/",
 
-        // Disable the task jade.
+        // Disable the task JADE and CONNECT.
         tasks: {
-          jade: false,
-          connect: false,
+          jade    : false,
+          connect : false,
         },
 
-        scripts: (sails.config.gulpstack || {}).concatScript || [],
-        styles:  (sails.config.gulpstack || {}).concatstyles || [],
+        scripts : config.concatScript || [],
+        styles  : config.concatstyles || [],
 
-      });
+        externals : config.externals || {},
+
+      })
 
 
       try {
         gulp.task("runNext", function () {
-          next();
-        });
+          next()
+        })
 
-        tasksToRun = [];
+        var tasksToRun = []
 
         if (sails.config.environment === "development") {
           tasksToRun = [
             "init",
             "debug",
             "watch",
-          ];
+          ]
         } else {
           tasksToRun = [
             "init",
             "debug",
-          ];
+          ]
         }
 
-        gulp.run(tasksToRun);
+        gulp.start(tasksToRun)
       } catch (err) {
-        sails.log.error("Error to run GULP: ", err);
+        sails.log.error("Error to run GULP:", err)
       }
 
-      return next();
+      return next()
     }
-  };
-};
+  }
+}
