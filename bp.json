@@ -4,7 +4,10 @@
     "email": "hi@jon.soy",
     "web": "http://jon.soy/"
   },
-  "start": [
-    "sails lift"
-  ]
+  "start": [],
+  "name": "et35",
+  "type": "node",
+  "install": [],
+  "uninstall": [],
+  "stop": []
 }
