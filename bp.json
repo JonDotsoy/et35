@@ -1,13 +1,20 @@
 {
+  "name": "et35",
+  "type": "node",
   "maintainer": {
     "name": "Jon Dotsoy",
     "email": "hi@jon.soy",
     "web": "http://jon.soy/"
   },
-  "start": [],
-  "name": "et35",
-  "type": "node",
-  "install": [],
+  "start": [
+    "node app.js"
+  ],
+  "debug": [
+    "node debug app.js"
+  ],
+  "install": [
+    "npm install"
+  ],
   "uninstall": [],
   "stop": []
 }
